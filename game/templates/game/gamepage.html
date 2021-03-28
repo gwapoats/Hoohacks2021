@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../static/css/gamepage.css">
+    <title>Game page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#about {
+  top: 20px;
+  background-color: #4CAF50;
+}
+
+#blog {
+  top: 80px;
+  background-color: #2196F3;
+}
+* {box-sizing: border-box}
+
+.container {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.php {width: 10%; background-color: #4CAF50;}
+.js {width: 20%; background-color: #2196F3;}
+.css {width: 20%; background-color: #f44336;}
+.html {width: 10%; background-color: #808080;}
+.d5{width: 20%; background-color: #090cdb;}
+.d6 {width: 30%; background-color: #0fd8d8;}
+
+#projects {
+  top: 140px;
+  background-color: #f44336;
+}
+
+#contact {
+  top: 200px;
+  background-color: #555
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  background: #666262;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+.v22_9 {
+  width: 367px;
+  height: 175px;
+  background: rgba(196,196,196,1);
+  opacity: 1;
+  position: absolute;
+  top: 245px;
+  left: 768px;
+  overflow: hidden;
+}
+.v22_10 {
+  width: 367px;
+  height: 170px;
+  background: rgba(196,196,196,1);
+  opacity: 1;
+  position: absolute;
+  top: 810px;
+  left: 768px;
+  overflow: hidden;
+}
+.v22_11 {
+  width: 367px;
+  height: 370px;
+  background: rgba(196,196,196,1);
+  opacity: 1;
+  position: absolute;
+  top: 430px;
+  left: 768px;
+  overflow: hidden;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.notification:hover {
+  background: red;
+}
+
+hr.new {
+  border: 2px solid green;
+  border-radius: 2px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider2 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .6s;
+  transition: .4s;
+}
+
+.slider2:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider2 {
+  background-color: #2196F3;
+}
+
+input:focus + .slider2 {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider2:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider2.round {
+  border-radius: 34px;
+}
+
+.slider2.round:before {
+  border-radius: 50%;
+}
+
+</style>
+<script>
+  var time = 0;
+</script>
+
+</head>
+<body>
+<div class="v9_0">
+    <div class="v9_3"></div>
+    <div class="v9_5">
+        <div class="v9_8"></div>
+        <div class="v9_9"></div>
+        <div class="v9_10"></div>
+    </div>
+    <span class="v9_11">your role: Dean of Student</span>
+    <span class="v9_12">date: day 7</span>
+    
+    <span class="v9_21">exit and view score</span>
+    <div class="v22_8">
+        <p>Local hospital capacity(cost in million): <span id="LocalHospitalCapacityout"></span></p>
+        <div class="slidecontainer">
+        <input type="range" min="10" max="20" value="1500" class="slider" id="LocalHospitalCapacity">
+            <script>
+                var slider1 = document.getElementById("LocalHospitalCapacity");
+                var output1 = document.getElementById("LocalHospitalCapacityout");
+                output1.innerHTML = slider1.value;
+                slider1.oninput = function() {
+                    output1.innerHTML = this.value;
+                }
+            </script>
+        </div>
+
+        <p>Testing capacity(cost in million):<span id="TestingCapacityout"></span></p>
+        <div class="slidecontainer">
+        <input type="range" min="10" max="20" value="1500" class="slider" id="TestingCapacity">
+            <script>
+                var slider3 = document.getElementById("TestingCapacity");
+                var output3 = document.getElementById("TestingCapacityout");
+                output3.innerHTML = slider3.value;
+                slider3.oninput = function() {
+                output3.innerHTML = this.value;
+            }
+            </script>
+        </div>
+
+        <p>Testing accuracy(cost in million):<span id="TestingAccuracyout"></span></p>
+        <div class="slidecontainer">
+        <input type="range" min="20" max="30" value="2500" class="slider" id="TestingAccuracy">
+            <script>
+                var slider4 = document.getElementById("TestingAccuracy");
+                var output4 = document.getElementById("TestingAccuracyout");
+                output4.innerHTML = slider4.value;
+                slider4.oninput = function() {
+                output4.innerHTML = this.value;
+            }
+            </script>
+        </div>
+       
+        <p>Online education quality(cost in million):<span id="OnlineEducationQualityout"></span></p>
+        <div class="slidecontainer">
+        <input type="range" min="10" max="20" value="1500" class="slider" id="OnlineEducationQuality">
+            <script>
+                var slider6 = document.getElementById("OnlineEducationQuality");
+                var output6 = document.getElementById("OnlineEducationQualityout");
+                output6.innerHTML = slider6.value;
+                slider6.oninput = function() {
+                output6.innerHTML = this.value;
+            }
+            </script>
+        </div>
+        <p>Hold online activity Hoos-Connect(cost in million):<span id="HoldOnlineActivityHoos-Connectout"></span></p>
+        <div class="slidecontainer">
+        <input type="range" min="5" max="10" value="750" class="slider" id="HoldOnlineActivityHoos-Connect">
+            <script>
+                var slider7 = document.getElementById("HoldOnlineActivityHoos-Connect");
+                var output7 = document.getElementById("HoldOnlineActivityHoos-Connectout");
+                output7.innerHTML = slider7.value;
+                slider7.oninput = function() {
+                output7.innerHTML = this.value;
+            }
+            </script>
+        </div>
+        <p>Distribute sanitizers in public space(cost 500 million):<span id="DistributeSanitizersInPublicSpaceout"></span></p>
+        <div class="slidecontainer">
+        <input type="range" min="1" max="10" value="50" class="slider" id="DistributeSanitizersInPublicSpace">
+            <script>
+                var slider8 = document.getElementById("DistributeSanitizersInPublicSpace");
+                var output8 = document.getElementById("DistributeSanitizersInPublicSpaceout");
+                output8.innerHTML = slider8.value;
+                slider8.oninput = function() {
+                output8.innerHTML = this.value;
+            }
+            </script>
+        </div>
+        <p>Fund raise activities(cost in million):<span id="FundRaiseActivitiesout"></span></p>
+        <div class="slidecontainer">
+        <input type="range" min="20" max="30" value="2500" class="slider" id="FundRaiseActivities">
+            <script>
+                var slider9 = document.getElementById("FundRaiseActivities");
+                var output9 = document.getElementById("FundRaiseActivitiesout");
+                output9.innerHTML = slider9.value;
+                slider9.oninput = function() {
+                output9.innerHTML = this.value;
+            }
+            </script>
+        </div>
+        <hr class="new">
+        <div class="slidecontainer">
+          <label for="myCheck">Distribute sanitizers in public space(cost 500 million)</label>
+          <input type="checkbox" id="myCheck-3" onclick="myFunction3()">
+          <p id="text-3" style="display:none">Checkbox is CHECKED!</p>
+          <script>
+              function myFunction3() {
+                  var checkBox = document.getElementById("myCheck-3");
+                  var text = document.getElementById("text-3");
+              }
+          </script>
+        </div>
+        <hr class="new">
+        <div class="slidecontainer">
+          <label for="myCheck">declare emergency state on Grounds(cost 4 billion)</label>
+          <input type="checkbox" id="myCheck-1" onclick="myFunction1()">
+          <p id="text-1" style="display:none">Checkbox is CHECKED!</p>
+          <script>
+              function myFunction1() {
+                  var checkBox = document.getElementById("myCheck-1");
+                  var text = document.getElementById("text-1");
+              }
+          </script>
+        </div>
+        <hr class="new">
+        <div class="slidecontainer">
+            <label for="myCheck">Regular indoor disinfection(cost 1 billion)</label>
+            <input type="checkbox" id="myCheck-2" onclick="myFunction2()">
+            <p id="text-2" style="display:none">Checkbox is CHECKED!</p>
+            <script>
+                function myFunction2() {
+                    var checkBox = document.getElementById("myCheck-2");
+                    var text = document.getElementById("text-2");
+                }
+            </script>
+        </div>
+        <hr class="new">
+        <div class="slidecontainer">
+          <label for="myCheck">Distribute vaccines(cost 1 billion)</label>
+          <input type="checkbox" id="myCheck-4" onclick="myFunction4()">
+          <p id="text-4" style="display:none">Checkbox is CHECKED!</p>
+          <script>
+              function myFunction4() {
+                  var checkBox = document.getElementById("myCheck-4");
+                  var text = document.getElementById("text-4");
+              }
+          </script>
+      </div>
+      <hr class="new">
+        <div class="slidecontainer">
+          <label for="myCheck">Cancel spring break</label>
+          <input type="checkbox" id="myCheck-5" onclick="myFunction5()">
+          <p id="text-5" style="display:none">Checkbox is CHECKED!</p>
+          <script>
+              function myFunction5() {
+                  var checkBox = document.getElementById("myCheck-5");
+                  var text = document.getElementById("text-5");
+              }
+          </script>
+        </div>
+        <div><button onclick="gotoNextDay()">next day</button></div>
+        <script>
+          function gotoNextDay() {
+              time += 1
+              var m_total_asset_delta = 0;
+              var death_rate_factor = 1-(output1/10000+0.1)
+              m_total_asset_delta -= output1/1000
+              var T_transmissibility_factor = 1-(output4/10000+0.2)
+              m_total_asset_delta -= output4/1000
+              m_total_asset_delta -= output3/1000
+              if (Math.random() > 0.5) //6 days later *=0.6
+              m_total_asset_delta -= output6/1000
+              var s_student_satisfaction_factor = s + 2 + 2*(output6/1000) + 2 + 3*(output7/1000-0.5)
+              if (document.getElementById("myCheck-1").checked) {
+                c_contact_rate = 0.55
+                m_total_asset_delta -= 4
+                s_student_satisfaction_factor -= 8
+              }
+              if (document.getElementById("myCheck-2").checked) {
+                T_transmissibility_factor *= 0.84
+                m_total_asset_delta -= 1
+              }
+              if (document.getElementById("myCheck-3").checked) {
+                T_transmissibility_factor *= 0.9
+                m_total_asset_delta -= 0.5
+              }
+              if (document.getElementById("myCheck-4").checked) {
+                // 30天后
+              }
+              if (document.getElementById("myCheck-5").checked) {
+                c_contact_rate *= 0.7
+                s_student_satisfaction_factor -= 4
+              }
+              var curData
+              for (temp in data){
+                if (temp.time == time){
+                  curData = temp
+                  flag = false
+                }
+              }
+              if (flag) curData = Data(time = time)
+          }
+      </script>
+    </div>
+    <hr class="new">
+    <div class="v22_9">
+        <div class="mui-input-row">
+            <label>Track information of students coming from offground</label>
+            <span class="radio_inline mui-radio">
+                <input name="radio1" type="radio" id="noTrack" checked value="0">
+                <label for="Track7">none</label>
+                <input name="radio1" type="radio" id="Track7" value="1">
+                <label for="Track7">7 days</label>
+                <input name="radio1" type="radio" id="Track14" value="2">
+                <label for="Track14">14 days</label>
+            </span>
+        </div>
+        <hr class="new">
+        <div class="mui-input-row ">
+            <label>Forced quarantine</label>
+            <span class="radio_inline mui-radio">
+                <input name="radio1" type="radio" id="noQuarantine" checked value="0">
+                <label for="Track7">none</label>
+                <input name="radio1" type="radio" id="ForcedQuarantine7" value="1">
+                <label for="ForcedQuarantine7">7 days</label>
+                <input name="radio1" type="radio" id="ForcedQuarantine14" value="2">
+                <label for="ForcedQuarantine14">14 days</label>
+            </span>
+        </div>
+        <hr class="new">
+        <div class="mui-input-row ">
+            <label>Class mode</label>
+            <span class="radio_inline mui-radio">
+                <input name="radio1" type="radio" id="in-person" checked value="0">
+                <label for="in-person">in-person</label>
+                <input name="radio1" type="radio" id="hybrid" value="1">
+                <label for="hybrid">hybrid</label>
+                <input name="radio1" type="radio" id="online" value="2">
+                <label for="online">online</label>
+            </span>
+        </div>
+        <hr class="new">
+        <div class="mui-input-row ">
+            <label>Restrict outgoing to downtown</label>
+            <span class="radio_inline mui-radio">
+                <input name="radio1" type="radio" id="suggestive" checked value="0">
+                <label for="suggestive">in-person</label>
+                <input name="radio1" type="radio" id="mandatory" value="1">
+                <label for="mandatory">hybrid</label>
+            </span>
+        </div>
+    </div>
+    <hr class="new">
+    <div class="v22_11">
+        <div class="mui-input-row ">
+            <div><label>Adjust dorm load:</label></div>
+            <span class="radio_inline mui-radio">
+              <div><input name="radio1" type="radio" id="noTrack" checked value="0">
+                <label for="Track7">reduce student capacity in dorms</label></div>
+                <div><input name="radio1" type="radio" id="Track7" value="1">
+                <label for="Track7">clear McCormick Rd. area dorms</label></div>
+                <div><input name="radio1" type="radio" id="Track14" value="2">
+                <label for="Track14">clear all dorms</label></div>
+            </span>
+        </div>
+        <hr class="new">
+        <div class="mui-input-row ">
+            <div><label>Restrict access to:</label></div>
+            <span class="radio_inline mui-radio">
+                <input name="radio1" type="radio" id="noQuarantine" checked value="0">
+                <label for="Track7">Dining Halls</label>
+                <input name="radio1" type="radio" id="ForcedQuarantine7" value="1">
+                <label for="ForcedQuarantine7">libraries</label>
+                <input name="radio1" type="radio" id="ForcedQuarantine14" value="2">
+                <label for="ForcedQuarantine14">gyms</label>
+            </span>
+        </div>
+        <hr class="new">
+        <div class="mui-input-row">
+          <div><label>Social distancing rules:</label></div>
+          <span class="radio_inline mui-radio">
+            <div><input name="radio1" type="radio" id="noTrack" checked value="0">
+              <label for="Track7">Allow gathering of 20 people</label></div>
+              <div><input name="radio1" type="radio" id="Track7" value="1">
+              <label for="Track7">Allow gathering of 10 people</label></div>
+              <div><input name="radio1" type="radio" id="Track14" value="2">
+              <label for="Track14">Forbid all kinds of gatherings</label></div>
+          </span>
+      </div>
+      <hr class="new">
+      <div class="mui-input-row">
+        <div><label>Face mask rules:</label></div>
+        <span class="radio_inline mui-radio">
+          <span class="radio_inline mui-radio">
+            <input name="radio1" type="radio" id="noQuarantine" checked value="0">
+            <label for="Track7">no regulations</label>
+            <input name="radio1" type="radio" id="ForcedQuarantine7" value="1">
+            <label for="ForcedQuarantine7">suggestive</label>
+            <input name="radio1" type="radio" id="ForcedQuarantine14" value="2">
+            <label for="ForcedQuarantine14">mandatory</label>
+        </span>
+    </div>
+        
+    </div>
+
+</label>
+    </div>
+    <div class="v58_2">
+      <p><center>day 1</center></p >
+        <div class="container">
+          <div class="skills html">1</div>
+        </div>
+        
+        <p><center>day 2</center></p >
+          <div class="container">
+            <div class="skills css">2</div>
+          </div>
+        <p><center>day 3</center></p >
+          <div class="container">
+            <div class="skills js">2</div>
+          </div>
+          <p><center>day 4</center></p >
+            <div class="container">
+              <div class="skills php">1</div>
+            </div>
+            <p><center>day 5</center></p >
+              <div class="container">
+                <div class="skills d5">2</div>
+              </div>
+              <p><center>day 6</center></p >
+                <div class="container">
+                  <div class="skills d6">3</div>
+                </div>
+        <div id="mySidenav" class="sidenav">
+        <a href="#" id="about" class="notification">News
+            <span class="badge">1</span>
+        </a>
+        <a href="#" id="blog">Stat</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
